@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>form_pattern_recognition</class>
+ <widget class="QWidget" name="form_pattern_recognition">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>660</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>660</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Pattern recognition</string>
+  </property>
+  <widget class="QLineEdit" name="le_number_of_points">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>17</y>
+     <width>250</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>10000</string>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+   <property name="placeholderText">
+    <string>10000</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_number_of_points">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Number of points:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="le_number_of_classes">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>47</y>
+     <width>250</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>7</string>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+   <property name="placeholderText">
+    <string>7</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_number_of_classes">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Number of classes:</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="gv_canvas">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>80</y>
+     <width>690</width>
+     <height>540</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_generate">
+   <property name="geometry">
+    <rect>
+     <x>295</x>
+     <y>625</y>
+     <width>110</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Generate</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
