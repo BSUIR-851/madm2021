@@ -3,29 +3,31 @@ from point import Point
 
 class Cluster:
 	def __init__(self):
-		self._points = []
+		self.points = []
 		self.cur_x = 0
 		self.cur_y = 0
 		self.last_x = 0
 		self.last_y = 0
 
-	def init_center(self, count, cluster_list, point_list):
+	@staticmethod
+	def init_center(number_of_classes, cluster_list, point_list):
 		size = len(point_list)
-		step = size / count
+		step = size // number_of_classes
 		steper = 0
 
-		for i in range(count):
-			cluster_list[i] = Cluster()
-			cluster_list[i].cur_x = point_list[steper].x
-			cluster_list[i].cur_y = point_list[steper].y
+		for cluster in cluster_list:
+			cluster.cur_x = point_list[steper].x
+			cluster.cur_y = point_list[steper].y
+			steper += step
 
 	def set_center(self):
 		sum_x = 0
 		sum_y = 0
-		size = len(self._points)
-		for i in range(size):
-			sum_x += self._points[i].x
-			sum_y += self._points[i].y
+		size = len(self.points)
+
+		for point in self.points:
+			sum_x += point.x
+			sum_y += point.y
 
 		self.last_x = self.cur_x
 		self.last_y = self.cur_y
@@ -34,50 +36,53 @@ class Cluster:
 		self.cur_y = sum_y / size
 
 	def clear_points(self):
-		self._points.clear()
+		self.points.clear()
 
 	def add_point(self, point):
-		self._points.append(point)
+		self.points.append(point)
 
-	def bind(self, count, cluster_list, point_list):
-		for i in range(count):
-			cluster_list[i].clear_points()
+	@staticmethod
+	def bind(number_of_classes, cluster_list, point_list):
+		for cluster in cluster_list:
+			cluster.clear_points()
 
 		size = len(point_list)
 
-		for i in range(size):
-			part1 = (cluster_list[0].cur_x - point_list[i].x) ** 2
-			part2 = (cluster_list[0].cur_y - point_list[i].y) ** 2
-			minimal = (part1 + part2) ** (1/2)
+		for point in point_list:
+			part1 = (cluster_list[0].cur_x - point.x) ** 2
+			part2 = (cluster_list[0].cur_y - point.y) ** 2
+			minimal = (part1 + part2) ** (1 / 2)
 			cluster = cluster_list[0]
 
-			for j in range(1, count):
-				part1_tmp = (cluster_list[j].cur_x - point_list[i].x) ** 2
-				part2_tmp = (cluster_list[j].cur_y - point_list[i].y) ** 2
-				tmp = (part1 + part2) ** (1/2)
+			for j in range(1, number_of_classes):
+				part1_tmp = (cluster_list[j].cur_x - point.x) ** 2
+				part2_tmp = (cluster_list[j].cur_y - point.y) ** 2
+				tmp = (part1_tmp + part2_tmp) ** (1 / 2)
 
 				if minimal > tmp:
 					minimal = tmp
 					cluster = cluster_list[j]
 
-			cluster.add_point(point_list[i])
+			cluster.add_point(point)
 
 		return cluster_list
 
-	def start(self, count, cluster_list, point_list):
-		self.init_center(count, cluster_list, point_list)
+	@classmethod
+	def start(cls, number_of_classes, cluster_list, point_list):
+		cls.init_center(number_of_classes, cluster_list, point_list)
 
 		while True:
 			check = 0
-			self.bind(count, cluster_list, point_list)
-			for i in range(count):
-				cluster_list[i].set_center()
+			cls.bind(number_of_classes, cluster_list, point_list)
 
-			for i in range(count):
-				if (cluster_list[i].cur_x == cluster_list[i].last_x) and (cluster_list[i].cur_y == cluster_list[i].last_y):
+			for cluster in cluster_list:
+				cluster.set_center()
+
+			for cluster in cluster_list:
+				if (cluster.cur_x == cluster.last_x) and (cluster.cur_y == cluster.last_y):
 					check += 1
 
-			if check == count:
+			if check == number_of_classes:
 				return
 
 
