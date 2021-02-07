@@ -76,9 +76,9 @@ class MaxMinController(QtCore.QObject):
 		)
 		msgBox.exec_()
 
-	def __generate_points(self, number_of_points):
+	def __generate_points(self, amount_of_points):
 		points = []
-		for i in range(number_of_points):
+		for i in range(amount_of_points):
 			point = Point(randrange(self.canvas_width), randrange(self.canvas_height))
 			points.append(point)
 		return points
@@ -100,23 +100,23 @@ class MaxMinController(QtCore.QObject):
 		self.scene.clear()
 
 		try:
-			number_of_points = int(self.ui.le_number_of_points.text())
+			amount_of_points = int(self.ui.le_amount_of_points.text())
 		except ValueError:
-			number_of_points = 10000
+			amount_of_points = 10000
 
-		self.point_list = self.__generate_points(number_of_points)
+		self.point_list = self.__generate_points(amount_of_points)
 
 		for point in self.point_list:
 			self.__draw_point(point, QtGui.QColor('black'))
 
 	def __pb_start_click(self):
 		try:
-			number_of_points = int(self.ui.le_number_of_points.text())
+			amount_of_points = int(self.ui.le_amount_of_points.text())
 		except ValueError:
-			number_of_points = 10000
+			amount_of_points = 10000
 
 		if not self.point_list:
-			self.point_list = self.__generate_points(number_of_points)
+			self.point_list = self.__generate_points(amount_of_points)
 
 		Cluster.start(self.cluster_list, self.point_list)
 		self.__draw_cluster_list()

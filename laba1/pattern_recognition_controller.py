@@ -8,6 +8,7 @@ from pattern_recognition_view import Ui_form_pattern_recognition
 from cluster import Cluster
 from point import Point
 
+
 class PatternRecognitionController(QtCore.QObject):
 	def __init__(self):
 		super().__init__()
@@ -75,9 +76,9 @@ class PatternRecognitionController(QtCore.QObject):
 		)
 		msgBox.exec_()
 
-	def __generate_points(self, number_of_points):
+	def __generate_points(self, amount_of_points):
 		points = []
-		for i in range(number_of_points):
+		for i in range(amount_of_points):
 			point = Point(randrange(self.canvas_width), randrange(self.canvas_height))
 			points.append(point)
 		return points
@@ -95,45 +96,45 @@ class PatternRecognitionController(QtCore.QObject):
 		brush = QtGui.QBrush(color)
 		self.scene.addRect(point.x, point.y, self.point_size[0], self.point_size[1], pen, brush)
 
-	def __init_clusters(self, number_of_classes):
-		return [Cluster() for i in range(number_of_classes)]
+	def __init_clusters(self, amount_of_classes):
+		return [Cluster() for i in range(amount_of_classes)]
 
 	def __pb_generate_click(self):
 		self.scene.clear()
 
 		try:
-			number_of_points = int(self.ui.le_number_of_points.text())
+			amount_of_points = int(self.ui.le_amount_of_points.text())
 		except ValueError:
-			number_of_points = 10000
+			amount_of_points = 10000
 
 		try:
-			number_of_classes = int(self.ui.le_number_of_classes.text())
+			amount_of_classes = int(self.ui.le_amount_of_classes.text())
 		except ValueError:
-			number_of_classes = 7
+			amount_of_classes = 7
 
-		self.point_list = self.__generate_points(number_of_points)
+		self.point_list = self.__generate_points(amount_of_points)
 
-		self.cluster_list = self.__init_clusters(number_of_classes)
-		Cluster.init_center(number_of_classes, self.cluster_list, self.point_list)
-		Cluster.bind(number_of_classes, self.cluster_list, self.point_list)
+		self.cluster_list = self.__init_clusters(amount_of_classes)
+		Cluster.init_center(amount_of_classes, self.cluster_list, self.point_list)
+		Cluster.bind(amount_of_classes, self.cluster_list, self.point_list)
 		self.__draw_cluster_list()
 
 	def __pb_start_click(self):
 		try:
-			number_of_points = int(self.ui.le_number_of_points.text())
+			amount_of_points = int(self.ui.le_amount_of_points.text())
 		except ValueError:
-			number_of_points = 10000
+			amount_of_points = 10000
 
 		try:
-			number_of_classes = int(self.ui.le_number_of_classes.text())
+			amount_of_classes = int(self.ui.le_amount_of_classes.text())
 		except ValueError:
-			number_of_classes = 7
+			amount_of_classes = 7
 
 		if not self.point_list:
-			self.point_list = self.__generate_points(number_of_points)
+			self.point_list = self.__generate_points(amount_of_points)
 
-		self.cluster_list = self.__init_clusters(number_of_classes)
-		Cluster.start(number_of_classes, self.cluster_list, self.point_list)
+		self.cluster_list = self.__init_clusters(amount_of_classes)
+		Cluster.start(amount_of_classes, self.cluster_list, self.point_list)
 		self.__draw_cluster_list()
 
 if __name__ == '__main__':

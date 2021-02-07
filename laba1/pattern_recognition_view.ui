@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Pattern recognition</string>
   </property>
-  <widget class="QLineEdit" name="le_number_of_points">
+  <widget class="QLineEdit" name="le_amount_of_points">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -44,7 +44,7 @@
     <string>10000</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lb_number_of_points">
+  <widget class="QLabel" name="lb_amount_of_points">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -54,10 +54,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Number of points:</string>
+    <string>Amount of points:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="le_number_of_classes">
+  <widget class="QLineEdit" name="le_amount_of_classes">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -76,7 +76,7 @@
     <string>7</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lb_number_of_classes">
+  <widget class="QLabel" name="lb_amount_of_classes">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -86,7 +86,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Number of classes:</string>
+    <string>Amount of classes:</string>
    </property>
   </widget>
   <widget class="QGraphicsView" name="gv_canvas">
