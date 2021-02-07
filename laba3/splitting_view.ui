@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>form_splitting</class>
+ <widget class="QWidget" name="form_splitting">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Splitting</string>
+  </property>
+  <widget class="QGraphicsView" name="gv_canvas">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>90</y>
+     <width>690</width>
+     <height>500</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_calculate">
+   <property name="geometry">
+    <rect>
+     <x>295</x>
+     <y>600</y>
+     <width>110</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Calculate</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="gb_input_data">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>150</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Input data:</string>
+   </property>
+   <widget class="QLabel" name="lb_p_c2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>55</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>P(C2):</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_p_c1">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>22</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0.25</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>0.25</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_p_c2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>52</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0.75</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>0.75</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_p_c1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>25</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>P(C1):</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="gb_output_data">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>0</y>
+     <width>521</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Output data:</string>
+   </property>
+   <widget class="QLabel" name="lb_false_alarm_probability">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>25</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>False alarm probability:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_false_alarm_probability">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>22</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_missing_error_detection_probability">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>55</y>
+      <width>211</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Missing error detection probability:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_missing_error_detection_probability">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>52</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_total_error">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>25</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Total error:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_total_error">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>22</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
