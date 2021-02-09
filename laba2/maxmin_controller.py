@@ -5,7 +5,8 @@ from random import randrange
 
 from maxmin_view import Ui_form_maxmin
 
-from cluster import Cluster
+from cluster_maxmin import ClusterMaxMin
+from cluster import Cluster as ClusterKMeans
 from point import Point
 
 
@@ -60,6 +61,7 @@ class MaxMinController(QtCore.QObject):
 	def start(self):
 		self.ui.pb_generate.clicked.connect(self.__pb_generate_click)
 		self.ui.pb_start.clicked.connect(self.__pb_start_click)
+		self.ui.pb_k_means.clicked.connect(self.__pb_k_means_click)
 
 		self.__update_form()
 		sys.exit(self.app.exec_())
@@ -118,8 +120,22 @@ class MaxMinController(QtCore.QObject):
 		if not self.point_list:
 			self.point_list = self.__generate_points(amount_of_points)
 
-		Cluster.start(self.cluster_list, self.point_list)
+		ClusterMaxMin.start(self.cluster_list, self.point_list)
 		self.__draw_cluster_list()
+
+	def __pb_k_means_click(self):
+		try:
+			amount_of_points = int(self.ui.le_amount_of_points.text())
+		except ValueError:
+			amount_of_points = 10000
+
+		if not self.point_list:
+			self.point_list = self.__generate_points(amount_of_points)
+
+		ClusterKMeans.start(len(self.cluster_list), self.cluster_list, self.point_list)
+		self.__draw_cluster_list()
+
+
 
 if __name__ == '__main__':
 	max_min_controller = MaxMinController()

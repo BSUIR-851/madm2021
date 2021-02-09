@@ -7,25 +7,25 @@
     <x>0</x>
     <y>0</y>
     <width>510</width>
-    <height>660</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>510</width>
-    <height>660</height>
+    <height>700</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>510</width>
-    <height>660</height>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Maxmin</string>
   </property>
-  <widget class="QLineEdit" name="le_number_of_points">
+  <widget class="QLineEdit" name="le_amount_of_points">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -44,7 +44,7 @@
     <string>10000</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lb_number_of_points">
+  <widget class="QLabel" name="lb_amount_of_points">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -91,6 +91,19 @@
    </property>
    <property name="text">
     <string>Start</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_k_means">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>660</y>
+     <width>110</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>K-means </string>
    </property>
   </widget>
  </widget>
