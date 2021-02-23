@@ -85,7 +85,7 @@ class PerceptronController(QtCore.QObject):
 		for func in funcs:
 			func_str = ''
 			for coeff in func:
-				func_str += '{:7} | '.format(coeff)
+				func_str += '| {:^7} |'.format(coeff)
 			self.ui.pte_functions.appendPlainText(func_str)
 		self.__update_form()
 

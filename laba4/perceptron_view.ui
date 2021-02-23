@@ -174,7 +174,11 @@
    <property name="font">
     <font>
      <family>PT Serif</family>
+     <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QPlainTextEdit::NoWrap</enum>
    </property>
    <property name="readOnly">
     <bool>true</bool>

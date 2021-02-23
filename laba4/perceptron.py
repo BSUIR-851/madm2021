@@ -3,6 +3,7 @@ from random import randint
 
 from pprint import pprint
 
+
 class Perceptron(object):
 	def __init__(self, amount_of_classes, vector_size, threshold=1000):
 		self.__amount_of_classes = amount_of_classes
@@ -67,7 +68,7 @@ if __name__ == '__main__':
 			vector[-1] = 1
 			while True:
 				for i in range(len(vector) - 1):
-					vector[i] = randint(-10, 10)
+					vector[i] = randint(-50, 50)
 				if list(vector) not in added_vectors:
 					break
 			added_vectors.append(list(vector))
