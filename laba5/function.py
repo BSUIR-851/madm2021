@@ -1,6 +1,3 @@
-from point import Point 
-
-
 class Function(object):
 	def __init__(self, x_coeff, y_coeff, xy_coeff, free_coeff):
 		self.__x_coeff = x_coeff
@@ -49,8 +46,10 @@ class Function(object):
 		if self.__y_coeff != 0:
 			return 'y = (' + str(-self.__x_coeff / self.__y_coeff) + \
 						'x ' + str(-self.__free_coeff / self.__y_coeff)
-
-		return 'x = ' + str(-self.__free_coeff / self.__x_coeff)
+		if self.__x_coeff != 0:
+			return 'x = ' + str(-self.__free_coeff / self.__x_coeff)
+		else:
+			raise ValueError('x coeffitient is 0')
 
 	def __add__(self, other):
 		return Function(self.__x_coeff + other.x_coeff, self.__y_coeff + other.y_coeff, self.__xy_coeff + other.xy_coeff, self.__free_coeff + other.free_coeff)
@@ -63,4 +62,3 @@ class Function(object):
 
 	def get_y(self, x):
 		return -(self.__x_coeff * x + self.__free_coeff) / (self.__xy_coeff * x + self.__y_coeff)
-
