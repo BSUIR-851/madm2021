@@ -90,18 +90,7 @@ class PotentialController(QtCore.QObject):
 			if not self.__func:
 				raise AttributeError('Do a train first')
 
-			vector_str = self.ui.le_vector.text().strip()
-			vector = [int(num_str) for num_str in vector_str.split(' ')]
-			
-			if len(vector) != self.__vector_size:
-				raise ValueError('Size of vector must be {}'.format(self.__vector_size))
-
-			vector.append(1)
-			try:
-				max_class = self.__perceptron.get_max_function_result(np.array(vector))
-				self.ui.le_result.setText('Class: {}'.format(max_class))
-			except ValueError as ve:
-				self.__msgbox_message('Error', str(ve))
+			pass
 
 		except ValueError as ve:
 			self.__msgbox_message('Error', str(ve))
