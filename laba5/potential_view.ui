@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>form_potential</class>
+ <widget class="QWidget" name="form_potential">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>510</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>510</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>510</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Potential method</string>
+  </property>
+  <property name="inputMethodHints">
+   <set>Qt::ImhNone</set>
+  </property>
+  <widget class="QPushButton" name="pb_train">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>160</y>
+     <width>110</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Train</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="gb_input_learning_data">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>490</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Input learning data:</string>
+   </property>
+   <widget class="QGroupBox" name="gb_class_0">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>231</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Class 0:</string>
+    </property>
+    <widget class="QGroupBox" name="gb_class_0_point_0">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Point 0:</string>
+     </property>
+     <widget class="QLineEdit" name="le_class_0_point_0_y">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>55</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_class_0_point_0_x">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>25</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
+      </property>
+      <property name="text">
+       <string>-1</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>-1</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_0_point_0_x">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>27</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_0_point_0_y">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>57</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Y:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="gb_class_0_point_1">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>20</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Point 1:</string>
+     </property>
+     <widget class="QLineEdit" name="le_class_0_point_1_y">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>55</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>1</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_class_0_point_1_x">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>25</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>1</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_0_point_1_x">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>27</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_0_point_1_y">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>57</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Y:</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="gb_class_1">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>20</y>
+      <width>231</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Class 1:</string>
+    </property>
+    <widget class="QGroupBox" name="gb_class_1_point_0">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Point 0:</string>
+     </property>
+     <widget class="QLineEdit" name="le_class_1_point_0_y">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>55</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_class_1_point_0_x">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>25</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>2</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_1_point_0_x">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>27</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_1_point_0_y">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>57</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Y:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="gb_class_1_point_1">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>20</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Point 1:</string>
+     </property>
+     <widget class="QLineEdit" name="le_class_1_point_1_y">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>55</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-2</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>-2</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_class_1_point_1_x">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>25</y>
+        <width>61</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>1</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_1_point_1_x">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>27</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_class_1_point_1_y">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>57</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Y:</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="lb_graphic">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Graphic:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_classificate">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>711</y>
+     <width>110</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Classificate</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="le_result">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>686</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>PT Serif</family>
+    </font>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_result">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>686</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Result:</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="gv_graphic">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>490</width>
+     <height>350</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="gb_point">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>626</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Point:</string>
+   </property>
+   <widget class="QLineEdit" name="le_point_y">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>25</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>0</string>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="le_point_x">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>25</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>2</string>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_point_x">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>27</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_point_y">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>27</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Y:</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="lb_separated_function">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Separated function:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="le_separated_function">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>491</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>PT Serif</family>
+    </font>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
