@@ -12,12 +12,22 @@ class PotentialController(QtCore.QObject):
 	def __init__(self):
 		super().__init__()
 		self.__init_ui_form()
+		self.__init_scene()
 
 	def __init_ui_form(self):
 		self.app = QtWidgets.QApplication(sys.argv)
 		self.form = QtWidgets.QMainWindow()
 		self.ui = Ui_form_potential()
 		self.ui.setupUi(self.form)
+
+	def __init_scene(self):
+		self.pen_width = 1
+		self.canvas_width = self.ui.gv_graphic.size().width() - 10
+		self.canvas_height = self.ui.gv_graphic.size().height() - 10
+
+		self.scene = QtWidgets.QGraphicsScene()
+		self.scene.setSceneRect(0, 0, self.canvas_width, self.canvas_height)
+		self.ui.gv_graphic.setScene(self.scene)
 
 	def start(self):
 		self.__func = None
@@ -79,12 +89,42 @@ class PotentialController(QtCore.QObject):
 		if not isSuccess:
 			self.__msgbox_message('Error', 'An error occurred while training. \nEnter another training data.')
 		else:
-			pass
+			self.scene.clear()
+			self.__draw_axes()
+			self.__draw_graphic()
+			self.__draw_training_points()
+
 		try:
 			self.ui.le_separated_function.setText(str(self.__func))
 		except ValueError:
 			self.__msgbox_message('Error', 'An error occurred while training. \nEnter another training data.')
 	
+	def __draw_point(self, point, color):
+		pen = QtGui.QPen(color)
+		pen.setWidth(self.pen_width)
+		brush = QtGui.QBrush(color)
+		self.scene.addElipse(point.x, point.y, self.point_size[0], self.point_size[1], pen, brush)
+
+	def __draw_line(self, start_point, end_point, color):
+		pen = QtGui.QPen(color)
+		pen.setWidth(self.pen_width)
+		self.scene.addLine(start_point.x, start_point.y, end_point.x, end_point.y, pen)
+
+	def __draw_axes(self):
+		start_point = Point(0, self.canvas_height / 2)
+		end_point = Point(self.canvas_width, self.canvas_height / 2)
+		self.__draw_line(start_point, end_point, QtGui.QColor('black'))
+
+		start_point = Point(self.canvas_width / 2, 0)
+		end_point = Point(self.canvas_width/ 2, self.canvas_height)
+		self.__draw_line(start_point, end_point, QtGui.QColor('black'))
+
+	def __draw_graphic(self):
+		pass
+
+	def __draw_training_points(self):
+		pass
+
 	def __pb_classificate_click(self):
 		try:
 			if not self.__func:
