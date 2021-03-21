@@ -7,6 +7,8 @@ from syntactic_view import Ui_form_syntactic
 
 from syntactic import SyntacticImage
 
+from point import Point
+
 
 class ImageScene(QtWidgets.QGraphicsScene):
 	click_signal = QtCore.pyqtSignal(float, float)
@@ -57,13 +59,23 @@ class SyntacticController(QtCore.QObject):
 
 	@QtCore.pyqtSlot(float, float)
 	def __click_handler(self, x, y):
-		if self.ui.cb_primitives.currentIndex() in range(len(self.__images)):
-			image = self.__images[self.ui.cb_primitives.currentIndex()]
-			pixmap_item = QtWidgets.QGraphicsPixmapItem(image.pixmap)
-			pixmap_item.setOffset(-image.pixmap.width() / 2, -image.pixmap.height() / 2)
+		current_index = self.ui.cb_primitives.currentIndex()
+		if current_index in range(len(self.__images)):
+			image = self.__images.pop(current_index)
+			pixmap = image.pixmap
+			pixmap_item = QtWidgets.QGraphicsPixmapItem(pixmap)
+
+			offset_x = pixmap.width() / 2
+			offset_y = pixmap.height() / 2
+			pixmap_item.setOffset(-offset_x, -offset_y)
 			pixmap_item.setPos(x, y)
+
 			self.__scene.addItem(pixmap_item)
 
+			self.__start_positions[image.name] = Point(x - offset_x, y - offset_y)
+			self.__end_positions[image.name] = Point(x - offset_x + offset_x * 2, y - offset_y + offset_y * 2)
+
+			self.ui.cb_primitives.removeItem(current_index)
 
 	def __fill_list_of_primitives(self):
 		self.ui.cb_primitives.clear()
@@ -104,6 +116,7 @@ class SyntacticController(QtCore.QObject):
 		self.__start_positions.clear()
 		self.__end_positions.clear()
 
+		self.__init_images()
 		self.__fill_list_of_primitives()
 
 	def __pb_recognize_click(self):
