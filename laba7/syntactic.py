@@ -1,7 +1,7 @@
 from PyQt5.QtGui import QPixmap
 
 
-class SyntacticPicture():
+class SyntacticImage():
 	def __init__(self, name, file_path):
 		self.__name = name
 		self.__file_path = file_path
