@@ -30,6 +30,9 @@ class Neuralink():
 		self.__model.fit(x_train, y_train_cat, batch_size, epochs, validation_split)
 		self.__model.evaluate(x_test, y_test_cat)
 
+	def predict(self):
+		pass
+
 	def __normalize(self, x_train, y_train, x_test, y_test):
 		x_train /= 255
 		x_test /= 255
@@ -53,4 +56,6 @@ class Neuralink():
 		model_layers.append(Dense(10, activation='softmax'))
 
 		model = keras.Sequential(model_layers)
+		model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
 		return model
