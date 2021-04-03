@@ -26,6 +26,8 @@ class Ui_form_neuralink(object):
         self.lb_number.setObjectName("lb_number")
         self.gv_digit = QtWidgets.QGraphicsView(form_neuralink)
         self.gv_digit.setGeometry(QtCore.QRect(10, 35, 180, 180))
+        self.gv_digit.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.gv_digit.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.gv_digit.setObjectName("gv_digit")
         self.pb_train = QtWidgets.QPushButton(form_neuralink)
         self.pb_train.setGeometry(QtCore.QRect(15, 220, 85, 32))
