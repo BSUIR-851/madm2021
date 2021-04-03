@@ -1,8 +1,13 @@
-from PyQt5 import QtCore, QtGui, QtWidgets, QtChart
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 import sys
 
+import numpy as np 
+
 from neuralink_view import Ui_form_neuralink
+
+from neuralink import Neuralink
+from neuralink_exception import LayerException, ModelError
 
 from point import Point
 
@@ -46,6 +51,7 @@ class NeuralinkController(QtCore.QObject):
 		super().__init__()
 		self.__init_ui_form()
 		self.__init_scene()
+		self.__init_neuralink_image_properties()
 
 	def __init_ui_form(self):
 		self.app = QtWidgets.QApplication(sys.argv)
@@ -58,16 +64,27 @@ class NeuralinkController(QtCore.QObject):
 		self.__canvas_height = 180
 		self.ui.gv_digit.setFixedSize(self.__canvas_width, self.__canvas_height)
 
-		self.__pen_thickness = 4
+		self.__pen_thickness = 6
 		self.__scene = DrawScene(self.__pen_thickness)
 		self.__scene.setSceneRect(0, 0, self.__canvas_width, self.__canvas_height)
 
 		self.ui.gv_digit.setScene(self.__scene)
 
+	def __init_neuralink_image_properties(self):
+		self.__image_width = 28
+		self.__image_height = 28
+		self.__channels_count = 1
+		self.__color_mode = QtGui.QImage.Format_Grayscale8
+
 	def start(self):
 		self.ui.pb_train.clicked.connect(self.__pb_train_click)
 		self.ui.pb_predict.clicked.connect(self.__pb_predict_click)
 		self.ui.pb_clear.clicked.connect(self.__pb_clear_click)
+
+		try:
+			self.__neuralink = Neuralink(1, ['relu'], [128])
+		except LayerException:
+			self.__msgbox_message('Error', str(e))
 
 		self.__update_form()
 
@@ -86,13 +103,35 @@ class NeuralinkController(QtCore.QObject):
 		msgBox.exec_()
 
 	def __pb_train_click(self):
-		pass
+		self.__neuralink.train()
 
 	def __pb_predict_click(self):
-		pass
+		try:
+			image_array = self.__get_image_array()
+			predicted_res = self.__neuralink.predict(image_array)
+			self.ui.le_result.setText(str(np.argmax(predicted_res)))
+		except ModelError as e:
+			self.__msgbox_message('Error', str(e))
+
 
 	def __pb_clear_click(self):
 		self.__scene.clear()
+
+	def __get_image_array(self):
+		image_pixmap = self.ui.gv_digit.grab(self.__scene.sceneRect().toRect())
+		
+		image = image_pixmap.toImage()
+		image = image.scaled(self.__image_width, self.__image_height, transformMode=QtCore.Qt.SmoothTransformation)
+		image.convertTo(self.__color_mode)
+		image.invertPixels()
+		
+		image_string = image.bits().asstring(self.__image_width * self.__image_height * self.__channels_count)
+		
+		image_array = np.frombuffer(image_string, dtype=np.uint8).reshape((self.__image_height, self.__image_width))
+		# image_array = image_array % 255
+		image_array = image_array / 255
+
+		return image_array
 
 if __name__ == '__main__':
 	neuralink_controller = NeuralinkController()

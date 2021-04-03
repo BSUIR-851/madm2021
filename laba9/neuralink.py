@@ -6,7 +6,7 @@ from keras.layers import Dense, Flatten
 from keras.utils import np_utils
 from keras.preprocessing.image import load_img, img_to_array
 
-from neural_exception import LayerException, ModelError
+from neuralink_exception import LayerException, ModelError
 
 
 class Neuralink():
