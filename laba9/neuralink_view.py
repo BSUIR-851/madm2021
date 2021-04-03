@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'neural_view.ui'
+# Form implementation generated from reading ui file 'neuralink_view.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.3
 #
@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_form_neuralink(object):
     def setupUi(self, form_neuralink):
         form_neuralink.setObjectName("form_neuralink")
-        form_neuralink.resize(200, 260)
-        form_neuralink.setMinimumSize(QtCore.QSize(200, 260))
-        form_neuralink.setMaximumSize(QtCore.QSize(200, 260))
+        form_neuralink.resize(200, 290)
+        form_neuralink.setMinimumSize(QtCore.QSize(200, 290))
+        form_neuralink.setMaximumSize(QtCore.QSize(200, 290))
         form_neuralink.setInputMethodHints(QtCore.Qt.ImhNone)
         self.pb_predict = QtWidgets.QPushButton(form_neuralink)
         self.pb_predict.setGeometry(QtCore.QRect(100, 220, 85, 32))
@@ -30,6 +30,9 @@ class Ui_form_neuralink(object):
         self.pb_train = QtWidgets.QPushButton(form_neuralink)
         self.pb_train.setGeometry(QtCore.QRect(15, 220, 85, 32))
         self.pb_train.setObjectName("pb_train")
+        self.pb_clear = QtWidgets.QPushButton(form_neuralink)
+        self.pb_clear.setGeometry(QtCore.QRect(45, 250, 110, 32))
+        self.pb_clear.setObjectName("pb_clear")
 
         self.retranslateUi(form_neuralink)
         QtCore.QMetaObject.connectSlotsByName(form_neuralink)
@@ -40,3 +43,4 @@ class Ui_form_neuralink(object):
         self.pb_predict.setText(_translate("form_neuralink", "Predict"))
         self.lb_number.setText(_translate("form_neuralink", "Write digit:"))
         self.pb_train.setText(_translate("form_neuralink", "Train"))
+        self.pb_clear.setText(_translate("form_neuralink", "Clear"))
